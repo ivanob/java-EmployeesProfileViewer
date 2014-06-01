@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+
+	<competences>
+
+		<competence name="C++"/>
+		<competence name="Java"/>
+		<competence name="HTML"/>
+	
+	</competences>
+
+	<sources>
+		<source name="alto" distrust_max="1.0" distrust_min="1.0"/>
+		<source name="medio" distrust_max="0.5" distrust_min="0.5"/>
+		<source name="bajo" distrust_max="0.1" distrust_min="0.1"/>
+	</sources>
+
+	<fuzzysets>
+
+		<competence name="C++">
+			<fuzzyset type="Decomposed">
+				<label name="poco" typeL="Gaussian" typeR="Gaussian">
+					<point alpha="1.0"/>
+					<point modal="5.0"/>
+					<point beta="1.0"/>
+				</label>
+				<label name="medio" typeL="Gaussian" typeR="Gaussian">
+					<point alpha="5.0"/>
+					<point modal="5.0"/>
+					<point beta="5.0"/>
+				</label>
+				<label name="mucho" typeL="Gaussian" typeR="Gaussian">
+					<point alpha="9.0"/>
+					<point modal="9.0"/>
+					<point beta="1.0"/>
+				</label>
+			</fuzzyset>
+		</competence>
+	
+		<competence name="Java">
+			<fuzzyset type="Interval">
+				<label name="poco" typeL="Exponential" typeR="Gaussian">
+					<point alpha="1.0"/>
+					<point modalLeft="2.0"/>
+					<point modalRight="3.0"/>
+					<point beta="4.0"/>
+				</label>
+			</fuzzyset>
+		</competence>
+
+		<competence name="HTML">
+			<fuzzyset type="Decomposed">
+				<label name="bajo" typeL="Linear" typeR="Linear">
+					<point alpha="1.0"/>
+					<point modal="1.0"/>
+					<point beta="1.0"/>
+				</label>
+				<label name="medio" typeL="Linear" typeR="Linear">
+					<point alpha="1.0"/>
+					<point modal="5.0"/>
+					<point beta="1.0"/>
+				</label>
+				<label name="alto" typeL="Linear" typeR="Linear">
+					<point alpha="1.0"/>
+					<point modal="9.0"/>
+					<point beta="1.0"/>
+				</label>
+			</fuzzyset>
+		</competence>
+	
+	</fuzzysets>
+
+	<employers>
+
+		<employer name="tonto1">
+			<evaluations>
+				<evaluation competence="HTML" source="alto" type="fuzzy">bajo</evaluation>
+				<evaluation competence="Java" source="alto" type="fuzzy">medio</evaluation>
+				<evaluation competence="C++" source="alto" type="fuzzy">poco</evaluation>
+			</evaluations>
+		</employer>
+		<employer name="tonto2">
+			<evaluations>
+				<evaluation competence="HTML" source="medio" type="fuzzy">alto</evaluation>
+				<evaluation competence="C++" source="medio" type="fuzzy">medio</evaluation>
+				<evaluation competence="Java" source="alto" type="fuzzy">medio</evaluation>
+			</evaluations>
+		</employer>
+		<employer name="listo">
+			<evaluations>
+				<evaluation competence="HTML" source="bajo" type="fuzzy">alto</evaluation>
+				<evaluation competence="C++" source="bajo" type="fuzzy">mucho</evaluation>
+				<evaluation competence="Java" source="alto" type="fuzzy">medio</evaluation>
+			</evaluations>
+		</employer>
+
+	</employers>
+
+</configuration>
+

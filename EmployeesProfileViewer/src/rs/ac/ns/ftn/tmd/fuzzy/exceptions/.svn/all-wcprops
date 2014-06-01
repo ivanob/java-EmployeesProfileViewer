@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/exceptions
+END
+FuzzyMultiplicationByZeroException.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/exceptions/FuzzyMultiplicationByZeroException.java
+END
+FuzzyDivisionByZeroException.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/exceptions/FuzzyDivisionByZeroException.java
+END
+UncompatibileFuzzyArithmeticsException.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/exceptions/UncompatibileFuzzyArithmeticsException.java
+END

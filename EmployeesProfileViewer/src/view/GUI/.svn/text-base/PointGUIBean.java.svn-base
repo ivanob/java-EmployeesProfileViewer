@@ -1,0 +1,21 @@
+package GUI;
+
+import prototype.Point;
+
+public class PointGUIBean {
+	private Point p;
+	private String name;
+	
+	public PointGUIBean(Point p, String name){
+		this.p = p;
+		this.name = name;
+	}
+	
+	public Point getPoint(){
+		return p;
+	}
+	
+	public String getName(){
+		return name;
+	}
+}

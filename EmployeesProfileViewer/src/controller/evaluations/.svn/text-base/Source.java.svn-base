@@ -1,0 +1,38 @@
+package controller.evaluations;
+
+public class Source {
+	private String name;
+	private float minDistrust, maxDistrust;
+	
+	public Source(String name, float minDistrust, float maxDistrust){
+		this.setName(name);
+		this.setMinDistrust(minDistrust);
+		this.setMaxDistrust(maxDistrust);
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getMinDistrust() {
+		return minDistrust;
+	}
+
+	public void setMinDistrust(float minDistrust) {
+		this.minDistrust = minDistrust;
+	}
+
+	public float getMaxDistrust() {
+		return maxDistrust;
+	}
+
+	public void setMaxDistrust(float maxDistrust) {
+		this.maxDistrust = maxDistrust;
+	}
+	
+	
+}

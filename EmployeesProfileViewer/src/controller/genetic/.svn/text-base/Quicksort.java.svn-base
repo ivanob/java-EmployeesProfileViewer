@@ -1,0 +1,88 @@
+package controller.genetic;
+
+import controller.genetic.chromosomes.Chromosome;
+
+
+public class Quicksort  {
+	private Chromosome[] values;
+	private int number;
+
+	public Quicksort(Chromosome[] values){
+		//Check for empty or null array
+		if (values ==null || values.length==0){
+			return;
+		}
+		this.values = values;
+		number = values.length;
+		sort(0, number - 1);
+	}
+	
+	public void sort(int low, int n){
+		int lo = low;
+		int hi = n;
+		if(lo >= n){
+			return;
+		}
+		double mid = values[(lo + hi) / 2].getFitness();
+		while(lo < hi){
+			while(lo<hi && values[lo].getFitness() < mid){
+				lo++;
+			}
+			while(lo<hi && values[hi].getFitness() > mid){
+				hi--;
+			}
+			if(lo < hi){
+			  exchange(lo,hi);
+			}
+		}
+		if(hi < lo){
+			int T = hi;
+			hi = lo;
+			lo = T;
+		}
+		sort(low, lo);
+		sort(lo == low ? lo+1 : lo, n);
+	}
+
+//	private void sort(int low, int high) {
+//		int i = low, j = high;
+//		// Get the pivot element from the middle of the list
+//		double pivot = values[low + (high-low)/2].fitness;
+//
+//		// Divide into two lists
+//		while (i <= j) {
+//			// If the current value from the left list is smaller then the pivot
+//			// element then get the next element from the left list
+//			while (values[i].fitness < pivot) {
+//				i++;
+//			}
+//			// If the current value from the right list is larger then the pivot
+//			// element then get the next element from the right list
+//			while (values[j].fitness > pivot) {
+//				j--;
+//			}
+//
+//			// If we have found a values in the left list which is larger then
+//			// the pivot element and if we have found a value in the right list
+//			// which is smaller then the pivot element then we exchange the
+//			// values.
+//			// As we are done we can increase i and j
+//			if (i <= j) {
+//				exchange(i, j);
+//				i++;
+//				j--;
+//			}
+//		}
+//		// Recursion
+//		if (low < j)
+//			sort(low, j);
+//		if (i < high)
+//			sort(i, high);
+//	}
+
+	private void exchange(int i, int j) {
+		Chromosome temp = values[i];
+		values[i] = values[j];
+		values[j] = temp;
+	}
+}

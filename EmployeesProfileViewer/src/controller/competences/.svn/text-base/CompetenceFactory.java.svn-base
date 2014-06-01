@@ -1,0 +1,235 @@
+package controller.competences;
+
+import java.util.LinkedList;
+
+
+public class CompetenceFactory {
+	private static CompetenceFactory INSTANCE = new CompetenceFactory();
+	private LinkedList<Competence> listCompetences;
+	
+	public static CompetenceFactory getInstance(){
+		return INSTANCE;
+	}
+	
+	public void removeAllCompetences(){
+		listCompetences = new LinkedList<Competence>();
+	}
+	
+	public int getNumCompetences(){
+		return this.listCompetences.size();
+	}
+	
+	public void addCompetence(String name){
+		this.listCompetences.add(new Competence(name, listCompetences.size()));
+	}
+	
+	public void removeCompetence(String name){
+		Competence c = getCompetence(name);
+		this.listCompetences.remove(c);
+	}
+	
+	private CompetenceFactory(){
+		listCompetences = new LinkedList<Competence>();
+		//int contID=0;
+		//numComp = this.loadCompetences(contID);
+		//this.loadFuzzySets();
+	}
+	
+	public Competence getCompetence(int i){
+		Competence res = null;
+		if(i>=0 && i<listCompetences.size()){
+			res = listCompetences.get(i);
+		}
+		return res;
+	}
+	
+	public Competence getCompetence(String name){
+		Competence res = null;
+		for(Competence c : listCompetences){
+			if(c.getName().compareTo(name)==0){
+				res = c;
+			}
+		}
+		return res;
+	}
+	
+//	private void loadFuzzySets(){
+//		try{
+//			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+//	        DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+//	        Document doc = docBuilder.parse (new File("./data/fuzzysets.xml"));
+//	        doc.getDocumentElement().normalize();
+//	        
+//	        NodeList listOfCompetences = doc.getElementsByTagName("competence");
+//	        for(int i=0; i<listOfCompetences.getLength(); i++){
+//	        	Element comp = (Element)listOfCompetences.item(i);
+//	        	NodeList listFuzzysets = comp.getElementsByTagName("fuzzyset");
+//	        	for(int j=0; j<listFuzzysets.getLength(); j++){
+//	        		
+//	        		FuzzySetBean fuzzyset = new FuzzySetBean();
+//	        		
+//	        		Element fuzzy = (Element)listFuzzysets.item(j);
+//	        		NodeList listLabels = fuzzy.getElementsByTagName("label");
+//	        		for(int l=0; l<listLabels.getLength(); l++){
+//	        			Element label = (Element)listLabels.item(l);
+//	        			
+//	        			int tipoFuzzy = -1;
+//	        			/* Es un fuzzyNumber bajo la tecnica Decomposed */
+//	        			if(fuzzy.getAttribute("type").compareTo("Decomposed")==0){
+//	        				tipoFuzzy = FuzzyVariableBean.DECOMPOSED;
+//	        			}else if(fuzzy.getAttribute("type").compareTo("LRFuzzyNumber")==0){
+//	        				/* Es un fuzzyNumber bajo la tecnica LRFuzzyNumber */
+//	        				tipoFuzzy = FuzzyVariableBean.LRNUMBER;
+//	        			}
+//	        			
+//	        			int typeL = -1, typeR = -1;
+//	        			double alpha = -1, beta = -1, modal = -1;
+//	        			String name = label.getAttribute("name");
+//	        			typeL = readFunctionType(label.getAttribute("typeL"));
+//	        			typeR = readFunctionType(label.getAttribute("typeR"));
+//	        			NodeList listPoints = label.getElementsByTagName("point");
+//	        			for(int k=0; k<listPoints.getLength(); k++){
+//	        				Element point = (Element)listPoints.item(k);
+//	        				if(point.getAttribute("alpha").compareTo("")!=0){
+//	        					alpha = Double.parseDouble(point.getAttribute("alpha"));
+//	        				}else if(point.getAttribute("modal").compareTo("")!=0){
+//	        					modal = Double.parseDouble(point.getAttribute("modal"));
+//	        				}else if(point.getAttribute("beta").compareTo("")!=0){
+//	        					beta = Double.parseDouble(point.getAttribute("beta"));
+//	        				}
+//	        			}
+//	        			FuzzyVariableBean fuzzyvar = new FuzzyVariableBean(tipoFuzzy, name, modal, 
+//	        					alpha, beta, typeL, typeR);
+//	        			fuzzyset.addFuzzyVariable(fuzzyvar);
+//	        			
+//	        		}
+//	        		//Aniado el fuzzyset a la competencia correspondiente 
+//	        		this.getCompetence(comp.getAttribute("name")).addFuzzySet(fuzzyset);
+//	        	}
+//	        	
+//	        }
+//		}catch (SAXParseException err) {
+//	    }catch (SAXException e) {
+//	    }catch (Throwable t) {
+//	    }
+//	}
+	
+	public void setListCompetences(LinkedList<Competence> list){
+		this.listCompetences=list;
+	}
+	
+//	private int readFunctionType(String label){
+//		int type = -1;
+//		if(label.compareTo("Linear")==0){
+//			type = FuzzySet.FUNCTION_LINEAR;
+//		}else if(label.compareTo("Exponential")==0){
+//			type = FuzzySet.FUNCTION_EXPONENTIAL;
+//		}else if(label.compareTo("Gaussian")==0){
+//			type = FuzzySet.FUNCTION_GAUSSIAN;
+//		}else if(label.compareTo("Quadratic")==0){
+//			type = FuzzySet.FUNCTION_QUADRATIC;
+//		}
+//		return type;
+//	}
+	
+//	private int loadCompetences(int contID){
+//		try{
+//			//listAgComp=new LinkedList<AggregatedCompetence>();
+//			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+//	        DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+//	        Document doc = docBuilder.parse (new File("./data/competences.xml"));
+//	        doc.getDocumentElement().normalize();
+//	        
+//	        NodeList listOfCompetences = doc.getElementsByTagName("competence");
+//	        for(int s=0; s<listOfCompetences.getLength(); s++){
+//	        	Element comp = (Element)listOfCompetences.item(s);
+//	        	
+//	        	Competence ac = new Competence(comp.getAttribute("name"),contID);
+//	        	
+//	        	/*NodeList listChilds = comp.getElementsByTagName("child");
+//	        	for(int k=0; k<listChilds.getLength(); k++){
+//	        		Element child = (Element)listChilds.item(k);
+//	        		/*if(child.getAttribute("type").compareTo("simple")==0){
+//	        			Competence aux = this.getCompetence(child.getAttribute("name"));
+//	        			double weight = Double.parseDouble(child.getAttribute("weight"));
+//	        			ac.addCompetence(aux, weight);
+//	        		}else if(child.getAttribute("type").compareTo("aggregated")==0){
+//	        			Competence aux = this.getCompetence(child.getAttribute("name"));
+//	        			double weight = Double.parseDouble(child.getAttribute("weight"));
+//	        			ac.addCompetence(aux, weight);
+//	        		}*/
+//	        		
+//	        		contID++;
+//	        		listCompetences.add(ac);
+//	        	}
+//	        	//ac.setId(contID);
+//	  
+//		}catch (SAXParseException err) {
+//	    }catch (SAXException e) {
+//	    }catch (Throwable t) {
+//	    }
+//		return contID;
+//	}
+	
+	/*private int loadCompetences(int contID){
+		try{
+			listCompetences = new LinkedList<Competence>();
+		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+        Document doc = docBuilder.parse (new File("./data/fuzzysets.xml"));
+
+        // normalize text representation
+        doc.getDocumentElement().normalize();
+
+        NodeList listOfCompetences = doc.getElementsByTagName("competence");
+        //System.out.println("Total no of competences : " + totalPersons);
+
+        for(int s=0; s<listOfCompetences.getLength(); s++){ //Itero sobre las competencias
+        	
+        	LinguisticFuzzySet lfs = null;
+        	LinkedList<LinguisticFuzzyValue> fuzzylinkedlist = new LinkedList<LinguisticFuzzyValue>();
+            
+        	Element comp = (Element)listOfCompetences.item(s);
+            //System.out.println(comp.getAttribute("name"));
+            NodeList listFuzzys = comp.getElementsByTagName("fuzzyset");
+            for(int i=0; i<listFuzzys.getLength(); i++){ //Itero sobre los fuzzysets
+            	
+            	Element fuzzy = (Element)listFuzzys.item(i);
+            	//System.out.println(fuzzy.getAttribute("type"));
+            	NodeList listLabels = fuzzy.getElementsByTagName("label");
+            	for(int j=0; j<listLabels.getLength(); j++){
+            		
+            		Element label = (Element)listLabels.item(j);
+            		LinkedList<Point> puntoslinkedlist = new LinkedList<Point>();
+            		
+            		NodeList listPoints = label.getElementsByTagName("point");
+            		for(int k=0; k<listPoints.getLength(); k++){
+            			Element point = (Element)listPoints.item(k);
+            			float x=Float.parseFloat(point.getAttribute("x"));
+            			float y=Float.parseFloat(point.getAttribute("y"));
+            			puntoslinkedlist.add(new Point(x,y));
+            		}
+            		
+            		String nombreLabel = label.getAttribute("name");
+                    fuzzylinkedlist.add(new LinguisticFuzzyValue(nombreLabel, toArray(puntoslinkedlist)));
+            	}
+            	
+            	lfs = new LinguisticFuzzySet(fuzzylinkedlist,0,10,20);
+            	
+            }
+            
+            String nameComp = comp.getAttribute("name");
+            SimpleCompetence c = new SimpleCompetence(contID, nameComp, "", lfs);
+            this.listCompetences.add(c);
+            contID++;
+            //end of if clause
+            
+        }//end of for loop with s var
+        
+    }catch (SAXParseException err) {
+    }catch (SAXException e) {
+    }catch (Throwable t) {
+    }
+		return contID;
+	}*/
+}

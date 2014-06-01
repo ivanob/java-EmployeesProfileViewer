@@ -1,0 +1,35 @@
+package test.evaluation.operations.all;
+
+import test.evaluation.operations.crisp.CrispSetDistancesTest;
+import test.evaluation.operations.crisp.CrispSetMeansTest;
+import test.evaluation.operations.fuzzy.DecomposedFuzzyAlphacutsTest;
+import test.evaluation.operations.fuzzy.DecomposedFuzzyDistancesTest;
+import test.evaluation.operations.fuzzy.DecomposedFuzzyMeansTest;
+import test.evaluation.operations.fuzzy.FuzzyIntervalConstructorTest;
+import test.evaluation.operations.fuzzy.FuzzyIntervalDistancesTest;
+import test.evaluation.operations.fuzzy.FuzzyIntervalMeansTest;
+import test.evaluation.operations.scalar.ScalarDistancesTest;
+import test.evaluation.operations.scalar.ScalarMeansTest;
+import junit.framework.JUnit4TestAdapter;
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class AllTests {
+	public static Test suite() {
+		TestSuite suite = new TestSuite("Test for test.evaluation.operations");
+		suite.addTest(new JUnit4TestAdapter(CrispSetDistancesTest.class));
+		suite.addTest(new JUnit4TestAdapter(CrispSetMeansTest.class));
+		
+		suite.addTest(new JUnit4TestAdapter(DecomposedFuzzyDistancesTest.class));
+		suite.addTest(new JUnit4TestAdapter(FuzzyIntervalConstructorTest.class));
+		suite.addTest(new JUnit4TestAdapter(FuzzyIntervalDistancesTest.class));
+		suite.addTest(new JUnit4TestAdapter(DecomposedFuzzyAlphacutsTest.class));
+		suite.addTest(new JUnit4TestAdapter(DecomposedFuzzyMeansTest.class));
+		suite.addTest(new JUnit4TestAdapter(FuzzyIntervalConstructorTest.class));
+		suite.addTest(new JUnit4TestAdapter(FuzzyIntervalMeansTest.class));
+		
+		suite.addTest(new JUnit4TestAdapter(ScalarDistancesTest.class));
+		suite.addTest(new JUnit4TestAdapter(ScalarMeansTest.class));
+		return suite;
+	}
+}

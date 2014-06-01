@@ -1,0 +1,46 @@
+package controller.employers;
+
+import java.util.LinkedList;
+
+public class EmployerManager {
+	private static EmployerManager INSTANCE = new EmployerManager();
+	private LinkedList<Employer> listEmployers;
+
+	public static EmployerManager getInstance(){
+		return INSTANCE;
+	}
+	
+	public void removeAllEmployers(){
+		listEmployers = new LinkedList<Employer>();
+	}
+	
+	private EmployerManager(){
+		listEmployers = new LinkedList<Employer>();
+	}
+
+	public void addEmployer(Employer e) {
+		listEmployers.add(e);
+	}
+	
+	public Employer getEmployer(int id){
+		return listEmployers.get(id);
+	}
+
+	public int getNumEmployers() {
+		return listEmployers.size();
+	}
+
+	public Employer[] getEmployerArray() {
+		Employer[] array = new Employer[this.getNumEmployers()];
+		int i=0;
+		for(Employer e : listEmployers){
+			array[i] = e;
+			i++;
+		}
+		return array;
+	}
+
+	public void removeEmployer(int index) {
+		this.listEmployers.remove(index);		
+	}
+}

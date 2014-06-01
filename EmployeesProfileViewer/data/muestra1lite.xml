@@ -1,0 +1,42 @@
+<configuration>
+<competences>
+<competence name="c++"/>
+<competence name="Java"/>
+<competence name="HTML"/>
+<competence name="Ruby"/>
+<competence name="Scala"/>
+<competence name="Python"/>
+<competence name="Linux"/>
+<competence name="Oracle"/>
+<competence name="MySQL"/>
+<competence name="Tomcat"/>
+</competences>
+<sources>
+<source distrust_max="0.0" distrust_min="0.0" name="max_trust"/>
+</sources>
+<fuzzysets>
+<competence name="c++">
+<fuzzyset/>
+</competence>
+</fuzzysets>
+<employees>
+
+<!-- Expertos en programacion sistemas -->
+<employee name="Empleado1">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">5.0</evaluation>
+</evaluations>
+</employee>
+
+
+</employees>
+</configuration>

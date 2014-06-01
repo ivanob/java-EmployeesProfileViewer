@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/42/PrototipoCompetencias/src/controller/competences
+END
+Competence.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/43/PrototipoCompetencias/src/controller/competences/Competence.java
+END
+FuzzySetBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/43/PrototipoCompetencias/src/controller/competences/FuzzySetBean.java
+END
+FuzzyVariableBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/44/PrototipoCompetencias/src/controller/competences/FuzzyVariableBean.java
+END
+CompetenceFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/44/PrototipoCompetencias/src/controller/competences/CompetenceFactory.java
+END

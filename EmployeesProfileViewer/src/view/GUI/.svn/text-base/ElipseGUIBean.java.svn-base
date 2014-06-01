@@ -1,0 +1,43 @@
+package GUI;
+
+import java.util.LinkedList;
+
+import prototype.Point;
+
+public class ElipseGUIBean {
+	private LinkedList<Point[]> ellipse;
+	private String name;
+	private float[] alphacutsLevels;
+	
+	public ElipseGUIBean(LinkedList<Point[]> ellipse, String name, 
+			float[] alphacutsLevels){
+		this.ellipse=ellipse;
+		this.name=name;
+		this.alphacutsLevels=alphacutsLevels;
+	}
+	
+	public Point[] getPerimetro(){
+		return ellipse.get(0);
+	}
+	
+	/**
+	 * 
+	 * @param level Desde 0 (La mas externa) a n (la mas interna).
+	 * @return
+	 */
+	public Point[] getConcentricElipse(int level){
+		return ellipse.get(level+1);
+	}
+	
+	public int getNumConcentricElipse(){
+		return ellipse.size()-1;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public String getLevelName(int i){
+		return "α-cut " + alphacutsLevels[i];
+	}
+}

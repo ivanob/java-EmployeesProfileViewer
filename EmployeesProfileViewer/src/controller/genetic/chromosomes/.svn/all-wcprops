@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/45/PrototipoCompetencias/src/Genetic/chromosomes
+END
+Chromosome.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/45/PrototipoCompetencias/src/Genetic/chromosomes/Chromosome.java
+END
+ChromosomeCircle.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/45/PrototipoCompetencias/src/Genetic/chromosomes/ChromosomeCircle.java
+END
+ChromosomeEllipseConcentric.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/45/PrototipoCompetencias/src/Genetic/chromosomes/ChromosomeEllipseConcentric.java
+END
+ChromosomeEllipse.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/45/PrototipoCompetencias/src/Genetic/chromosomes/ChromosomeEllipse.java
+END

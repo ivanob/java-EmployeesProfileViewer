@@ -1,0 +1,271 @@
+package controller.genetic;
+
+import java.util.LinkedList;
+
+import javax.swing.SwingWorker;
+
+import controller.competences.CompetenceFactory;
+import controller.employers.EmployerManager;
+import controller.genetic.chromosomes.Chromosome;
+import controller.genetic.chromosomes.ChromosomeCircle;
+import controller.genetic.chromosomes.ChromosomeEllipseConcentric;
+import controller.geometry.Point;
+import controller.genetic.chromosomes.*;
+import controller.genetic.genes.Gene;
+import controller.genetic.genes.GeneEllipse;
+import controller.genetic.genes.GeneEllipseConcentric;
+
+import model.ElipseGUIBean;
+import model.GUIDataBean;
+import model.PointGUIBean;
+
+
+public class Genetic extends SwingWorker<GUIDataBean, Integer>{
+	private int N, S, iter;
+	private EmployerManager em = EmployerManager.getInstance();
+	private float[] alphacuts;
+	public final static int POINT = 1, CIRCLE = 2;
+	public static final int ELIPSE = 3;
+	private int typeGenetic;
+	private int probMutation;
+	private boolean DEBUG=false;
+	private SimilarityMatrix matrix;
+	private int type;
+	private GeneticConfigBean config;
+	private float alphaSmoothing;
+	
+	
+	public int numGenes(){
+		return em.getNumEmployers();
+	}
+	
+	protected GUIDataBean doInBackground() throws Exception{
+		//new Genetic(matrix,this.ELIPSE);
+		return Evolution();
+	}	
+	
+	public GUIDataBean Evolution(){
+		long start=System.currentTimeMillis();
+		setProgress(0);
+		this.probMutation = (int)(config.getMutationProbability()*1000000);
+		//1000; //1 cada 1000 reproducciones
+		this.typeGenetic = type;
+		this.N = config.getNumPopulation();//1000;//1000;
+		this.S = config.getNumSelectedIndividuals();//500;
+		this.iter = config.getNumIterations();//100;
+		this.alphacuts= config.getAlphacuts();
+		this.alphaSmoothing = config.getAlphaSmoothing();
+		
+		Chromosome[] population = this.generarPoblacionInicial();
+		population = this.run(iter, population);
+		System.out.println("FIN");
+		System.out.println("Fitness: " + population[0].getFitness());
+		for(int i=0; i<em.getNumEmployers(); i++){
+			System.out.println("Empl " + i + ": " + population[0].getGene(i));
+		}
+		long end=System.currentTimeMillis();
+		GUIDataBean graphicBean = rellenarResultados((ChromosomeEllipseConcentric)population[0], end-start);
+		return graphicBean;
+	}
+	
+	public Genetic(SimilarityMatrix matrix, int type, GeneticConfigBean config) {
+		this.matrix=matrix;
+		this.type=type;
+		this.config=config;
+	}
+
+	private GUIDataBean rellenarResultados(ChromosomeEllipseConcentric chro, long time){
+		GUIDataBean result = new GUIDataBean();
+		int numPuntos = chro.getNumPuntos();
+		for(int i=0; i<chro.getNumGenes(); i++){
+			Gene gene = chro.getGeneEmpl(i);
+			if(gene instanceof GeneEllipseConcentric){
+				GeneEllipseConcentric gec=(GeneEllipseConcentric)gene;
+				LinkedList<Point[]> points=new LinkedList<Point[]>();
+				points.add(gec.getPoints(500));
+				for(int j=0; j<alphacuts.length; j++){
+					points.add(gec.getPointsCut(j));
+				}
+				ElipseGUIBean ellipseBean = new ElipseGUIBean(points,
+					em.getEmployer(i).getName(), this.alphacuts);
+				result.addEllipseEmployer(ellipseBean);
+			}
+			else if(gene instanceof GeneEllipse){
+				GeneEllipse ge=(GeneEllipse)gene;
+				LinkedList<Point[]> points=new LinkedList<Point[]>();
+				points.add(ge.getPoints(500));
+				ElipseGUIBean ellipseBean = new ElipseGUIBean(points,
+					em.getEmployer(i).getName(), null);
+				result.addEllipseEmployer(ellipseBean);
+			}else if(gene instanceof Gene){
+				PointGUIBean pointBean = new PointGUIBean(gene.getPoints()[0],
+						em.getEmployer(i).getName());
+				result.addPointEmployer(pointBean);
+			}
+		}
+		int i=0;
+		CompetenceFactory cf = CompetenceFactory.getInstance();
+		for(int j=0; j<cf.getNumCompetences()*2; j++){
+			Gene gene = chro.getGeneCaract(i);
+			int idComp = j;
+			String name = "NO ";
+			if(j>=cf.getNumCompetences()){
+				idComp -= cf.getNumCompetences();
+				name = "ONLY ";
+			}
+			name += cf.getCompetence(idComp).getName();
+			i++;
+			result.addPointCaracteristic(new PointGUIBean(gene.getPoints()[0],
+				name));
+		}
+		//Datos de status
+		result.setFitness(chro.getFitness());
+		result.setTime(time);
+		return result;
+	}
+		
+	private Chromosome[] generarDescendencia(Chromosome[] parents, int numHijos){
+		Chromosome[] child = null;
+		if(this.typeGenetic==POINT){
+			child = new Chromosome[numHijos];
+		}else if(this.typeGenetic==CIRCLE){
+			child = new ChromosomeCircle[numHijos];
+		}else if(this.typeGenetic==ELIPSE){
+			child = new ChromosomeEllipseConcentric[numHijos];
+		}
+		int j=0;
+		for(int i=0; i<numHijos/2; i++){
+			int idParent1 = intAleatorio(0, parents.length);
+			int idParent2 = intAleatorio(0, parents.length);
+			Chromosome[] children = parents[idParent1].crossover(parents[idParent2]);
+			child[j] = children[0];
+			child[j+1] = children[1];
+			j+=2;
+		}
+		return child;
+	}
+	
+	private int numRepeticiones(Chromosome[] crom){
+		int rep=0;
+		for(int i=0; i<crom.length; i++){
+			for(int j=0; j<crom.length; j++){
+				if(i!=j){
+					if(crom[i].getFitness() == crom[j].getFitness()){
+						rep++;
+					}
+				}
+			}
+		}
+		return rep;
+	}
+	
+	private Chromosome[] run(int numIter, Chromosome[] population){
+		for(int i=0; i<numIter; i++){
+		//while(population[0].fitness>10){
+			//int n1 = numRepeticiones(population);
+			ordenarPopulation(population);
+			//int n2 = numRepeticiones(population);
+			Chromosome[] best = selectBestChromos(S, population);
+			//int n3 = numRepeticiones(best);
+			Chromosome[] children = this.generarDescendencia(best, 400);
+			//int n4 = numRepeticiones(children);
+			ordenarPopulation(children);
+			//int n5 = numRepeticiones(children);
+			population = this.replacePopulation(population, children);
+			System.out.println("Iteracion " + i + ", Best fitness: " + population[0].getFitness());
+			if(DEBUG){
+				population[0].debug();
+			}
+			//Actualizo la barra de progreso
+			int progress=(i*100)/numIter;
+			setProgress(progress);
+		}
+		setProgress(100);
+		return population;
+	}
+	
+	private Chromosome[] replacePopulation(Chromosome[] population, Chromosome[] children){
+		Chromosome[] newPopulation = null;
+		if(typeGenetic == this.CIRCLE){
+			newPopulation = new ChromosomeCircle[N];
+		}else if(typeGenetic == this.POINT){
+			newPopulation = new Chromosome[N];
+		}else if(typeGenetic == this.ELIPSE){
+			newPopulation = new ChromosomeEllipseConcentric[N];
+		}
+		for(int i=0; i<N-children.length; i++){
+			newPopulation[i] = population[i];
+		}
+		int j=0;
+		for(int i=N-children.length; i<N; i++){
+			newPopulation[i] = children[j];
+			j++;
+		}
+		/*Chromosome[] res = new Chromosome[N];
+		for(int i=0; i<N; i++){
+			res[i] = newPopulation[i];
+		}
+		return res;*/
+		return newPopulation;
+	}
+	
+	private void ordenarPopulation(Chromosome[] population){
+		//Ordenacion burbuja
+		for(int i=population.length-1;i>1;i--){
+			for(int j=1;j<=i;j++){
+				if(population[j-1].getFitness()>population[j].getFitness()){
+					Chromosome aux2 = population[j-1];
+					population[j-1]=population[j];
+					population[j]=aux2;
+				}
+			}
+		}
+	}
+	
+	private Chromosome[] selectBestChromos(int numSel, Chromosome[] population){
+		Chromosome[] res = null;
+		if(typeGenetic == CIRCLE){
+			res = new ChromosomeCircle[numSel];
+		}else if(typeGenetic == POINT){
+			res = new Chromosome[numSel];
+		}else if(typeGenetic == ELIPSE){
+			res = new ChromosomeEllipseConcentric[numSel];
+		}
+		//ordenarPopulation(population);
+		for(int i=0; i<numSel; i++){
+			res[i] = population[i];
+		}
+		return res;
+	}
+	
+	private int intAleatorio(int ini, int fin){
+		return (int)(Math.random()*fin + ini);
+	}
+	
+	
+	private Chromosome[] generarPoblacionInicial(){
+		Chromosome[] population = null;
+		if(this.typeGenetic==this.POINT){
+			population = new Chromosome[N];
+			for(int i=0; i<N; i++){
+				population[i] = new Chromosome(numGenes(), this.matrix, probMutation);
+				population[i].rellenarDatosAleatorios();
+			}
+		}else if(this.typeGenetic==this.CIRCLE){
+			population = new ChromosomeCircle[N];
+			for(int i=0; i<N; i++){
+				population[i] = new ChromosomeCircle(numGenes(), this.matrix, probMutation);
+				population[i].rellenarDatosAleatorios();
+			}
+		}else if(this.typeGenetic==this.ELIPSE){
+			population = new ChromosomeEllipseConcentric[N];
+			for(int i=0; i<N; i++){
+				population[i] = new ChromosomeEllipseConcentric(this.matrix, probMutation, alphacuts, alphaSmoothing);
+				population[i].rellenarDatosAleatorios();
+			}
+		}
+		return population;
+	}
+
+	
+}

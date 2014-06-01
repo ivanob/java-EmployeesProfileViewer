@@ -1,0 +1,83 @@
+package controller.evaluations;
+
+import java.io.File;
+import java.util.LinkedList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+
+
+public class SourceFactory {
+	private static SourceFactory INSTANCE = new SourceFactory();
+	private LinkedList<Source> listSources;
+	
+	public static SourceFactory getInstance(){
+		return INSTANCE;
+	}
+	
+	public void removeAllSources(){
+		listSources = new LinkedList<Source>();
+	}
+	
+	public int getNumSources(){
+		return listSources.size();
+	}
+	
+	public Source getSource(int i){
+		return listSources.get(i);
+	}
+	
+	public void addSource(String name, float maxDistrust, float minDistrust){
+		listSources.add(new Source(name, minDistrust, maxDistrust));
+	}
+	
+	private SourceFactory(){
+		listSources = new LinkedList<Source>();
+		//loadSources();
+	}
+	
+	public Source getSource(String name){
+		for(Source s : listSources){
+			if(name.compareTo(s.getName())==0){
+				return s;
+			}
+		}
+		return null;
+	}
+	
+	public Source getMaximunCertainSource(){
+		return new Source("Max certain", 0 ,0);
+	}
+
+	public void removeSource(String name) {
+		this.listSources.remove(getSource((name)));
+	}
+	
+	/*private void loadSources(){
+		try{
+			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+	        DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+	        Document doc = docBuilder.parse (new File("./data/source.xml"));
+	        doc.getDocumentElement().normalize();
+	        
+	        NodeList listOfSources = doc.getElementsByTagName("source");
+	        for(int i=0; i<listOfSources.getLength(); i++){
+	        	Element s = (Element)listOfSources.item(i);
+	        	String name=s.getAttribute("name");
+	        	float minDistrust=Float.parseFloat(s.getAttribute("distrust_min"));
+	        	float maxDistrust=Float.parseFloat(s.getAttribute("distrust_max"));
+	        	listSources.add(new Source(name, minDistrust, maxDistrust));
+	        }
+		}catch (SAXParseException err) {
+	    }catch (SAXException e) {
+	    }catch (Throwable t) {
+	    }
+        
+	}*/
+}

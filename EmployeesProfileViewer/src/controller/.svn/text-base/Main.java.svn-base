@@ -1,0 +1,144 @@
+package controller;
+
+import controller.competences.CompetenceFactory;
+import controller.employers.Employer;
+import controller.employers.EmployerManager;
+import controller.evaluations.Evaluation;
+import controller.evaluations.Source;
+import controller.evaluations.SourceFactory;
+import controller.genetic.Genetic;
+import controller.genetic.SimilarityMatrix;
+import controller.persistence.XMLReader;
+import rs.ac.ns.ftn.tmd.fuzzy.CrispSet;
+import rs.ac.ns.ftn.tmd.fuzzy.ScalarNumber;
+import view.GUI.Grafica;
+
+public class Main {
+	//private Employer[] empl;
+	private int numEmpl=4;//10;
+	//private int numComp=4;
+	private SimilarityMatrix matrix;
+	private CompetenceFactory cf=CompetenceFactory.getInstance();
+	private SourceFactory sf=SourceFactory.getInstance();
+	private EmployerManager em=EmployerManager.getInstance();
+
+	public static void main(String[] args) {
+		new Main();
+	}
+	
+	public Main(){
+		System.out.println("*** Prototipo Competencias ***");
+		XMLReader reader = new XMLReader("./data/state.xml");
+		reader.readConfiguration();
+		//crearEmpleados();
+		//rellenarEvalEmpleados();
+		matrix = new SimilarityMatrix();
+		Grafica gr = new Grafica(null, Genetic.ELIPSE);
+		//new Genetic(matrix, Genetic.ELIPSE);
+	}
+	
+	/* BORRAR
+	 * private void crearPuntosCaracteristicos(){
+		ptosCaract = new Employer[cf.getNumCompetences()*2];
+		for(int i=0; i<cf.getNumCompetences(); i++){
+			ptosCaract[i] = new Employer("NO " + cf.getCompetence(i).getName(), cf.getNumCompetences());
+			ptosCaract[i].setEvaluation(new Evaluation(cf.getCompetence(i),new ScalarNumber(0)));
+			ptosCaract[1+i+cf.getNumCompetences()/2] = new Employer("ONLY " + cf.getCompetence(i).getName(),
+					cf.getNumCompetences());
+			ptosCaract[1+i+cf.getNumCompetences()/2].setEvaluation(new Evaluation(cf.getCompetence(i),new ScalarNumber(10)));
+		}
+	}*/
+	
+	private void rellenarEvalEmpleados(){
+	//	empl[0].setEvaluation(new Evaluation(cf.getCompetence(0), new CrispSet(0,10)));
+	//	empl[0].setEvaluation(new Evaluation(cf.getCompetence(1), new ScalarNumber(3)));
+		
+	//	empl[0].setEvaluation(new Evaluation(cf.getCompetence(0), new ScalarNumber(3)));
+	//	empl[0].setEvaluation(new Evaluation(cf.getCompetence(1), new CrispSet(3, 10)));
+	//	empl[0].setEvaluation(new Evaluation(cf.getCompetence(2), new ScalarNumber(0)));
+		Source s = sf.getSource("aaa");
+		
+		Employer e=em.getEmployer(0);
+		e.addEvaluation(new Evaluation(cf.getCompetence(0), s, 0));
+		e.addEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(5)));
+		e.addEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(5)));
+		
+		e=em.getEmployer(1);
+		e.addEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(5)));
+		e.addEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(5)));
+		e.addEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(0)));
+		
+		e=em.getEmployer(2);
+		e.addEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(9)));
+		e.addEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(9)));
+		e.addEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(9)));
+		
+		e=em.getEmployer(3);
+		e.addEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(3)));
+		e.addEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(3)));
+		e.addEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(2)));
+		
+		/*
+		Employer e=em.getEmployer(0);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(5)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(5)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(5)));
+		
+		e=em.getEmployer(1);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(5)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(5)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(0)));
+		
+		e=em.getEmployer(2);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(9)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(9)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(9)));
+		
+		e=em.getEmployer(3);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(3)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(3)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(2)));
+		
+		e=em.getEmployer(4);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(0)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(0)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(0)));
+		
+		e=em.getEmployer(5);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(2)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(8)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(5)));
+		
+		e=em.getEmployer(6);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(5)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(9)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(9)));
+		
+		e=em.getEmployer(7);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(2)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(1)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(10)));
+		
+		e=em.getEmployer(8);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(2)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(3)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(1)));
+		
+		e=em.getEmployer(9);
+		e.setEvaluation(new Evaluation(cf.getCompetence(0), s, new ScalarNumber(4)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(1), s, new ScalarNumber(5)));
+		e.setEvaluation(new Evaluation(cf.getCompetence(2), s, new ScalarNumber(9)));
+		*/
+	}
+	
+	private int intAleatorio(int ini, int fin){
+		return (int)(Math.random()*fin + ini);
+	}
+	
+	private void crearEmpleados() {
+		for(int i=0; i<numEmpl; i++){
+			em.addEmployer(new Employer("Empl " + i, cf.getNumCompetences()));
+		}
+	}
+
+}

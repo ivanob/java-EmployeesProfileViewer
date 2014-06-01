@@ -1,0 +1,226 @@
+<configuration>
+<competences>
+<competence name="c++"/>
+<competence name="Java"/>
+<competence name="HTML"/>
+<competence name="Ruby"/>
+<competence name="Scala"/>
+<competence name="Python"/>
+<competence name="Linux"/>
+<competence name="Oracle"/>
+<competence name="MySQL"/>
+<competence name="Tomcat"/>
+</competences>
+<sources>
+<source distrust_max="0.0" distrust_min="0.0" name="max_trust"/>
+</sources>
+<fuzzysets>
+<competence name="c++">
+<fuzzyset/>
+</competence>
+<competence name="Java">
+<fuzzyset/>
+</competence>
+<competence name="HTML">
+<fuzzyset/>
+</competence>
+<competence name="Ruby">
+<fuzzyset/>
+</competence>
+<competence name="Scala">
+<fuzzyset/>
+</competence>
+<competence name="Python">
+<fuzzyset/>
+</competence>
+<competence name="Linux">
+<fuzzyset/>
+</competence>
+<competence name="Oracle">
+<fuzzyset/>
+</competence>
+<competence name="MySQL">
+<fuzzyset/>
+</competence>
+<competence name="Tomcat">
+<fuzzyset/>
+</competence>
+</fuzzysets>
+<employees>
+
+<!-- Usuarios de prueba para casos especiales -->
+
+<employee name="small_uncertain">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="Java" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="HTML" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="Scala" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="Python" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="Linux" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+</evaluations>
+</employee>
+
+<employee name="big_uncertain">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Java" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="HTML" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Scala" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Python" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Linux" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="crisp">[0, 10]</evaluation>
+</evaluations>
+</employee>
+
+<employee name="big_uncertain_admin">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Linux" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="crisp">[0, 10]</evaluation>
+</evaluations>
+</employee>
+
+<employee name="big_uncertain_web">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">5</evaluation>
+</evaluations>
+</employee>
+
+<employee name="big_uncertain_systems">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Java" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Scala" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Python" source="max_trust" type="crisp">[0, 10]</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">5</evaluation>
+</evaluations>
+</employee>
+
+<!-- Lista de empleados con desconfianza progresiva en SCALA !-->
+
+<employee name="uncertain_SCALA_1">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Scala" source="max_trust" type="crisp">[4.5, 5.5]</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">5</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">5</evaluation>
+</evaluations>
+</employee>
+<!--
+<employee name="uncertain_SCALA_2">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">4</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">4</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">4</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">4</evaluation>
+<evaluation competence="Scala" source="max_trust" type="crisp">[5, 6]</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">4</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">4</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">4</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">4</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">4</evaluation>
+</evaluations>
+</employee>
+!-->
+
+<employee name="uncertain_SCALA_2">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">3</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">3</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">3</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">3</evaluation>
+<evaluation competence="Scala" source="max_trust" type="crisp">[7, 8]</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">3</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">3</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">3</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">3</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">3</evaluation>
+</evaluations>
+</employee>
+
+<!--
+<employee name="uncertain_SCALA_4">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">2</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">2</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">2</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">2</evaluation>
+<evaluation competence="Scala" source="max_trust" type="crisp">[7, 8]</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">2</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">2</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">2</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">2</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">2</evaluation>
+</evaluations>
+</employee>
+
+
+<employee name="uncertain_SCALA_5">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">1</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">1</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">1</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">1</evaluation>
+<evaluation competence="Scala" source="max_trust" type="crisp">[8, 9]</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">1</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">1</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">1</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">1</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">1</evaluation>
+</evaluations>
+</employee>!-->
+
+
+
+<employee name="uncertain_SCALA_3">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">0</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="crisp">[9.5, 10]</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">0</evaluation>
+</evaluations>
+</employee>
+
+</employees>
+</configuration>

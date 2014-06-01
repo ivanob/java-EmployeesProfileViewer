@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/6/PrototipoCompetencias/src/GUI
+END
+jDialogEditCompetences.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/45/PrototipoCompetencias/src/GUI/jDialogEditCompetences.java
+END
+jDialogEditSources.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/43/PrototipoCompetencias/src/GUI/jDialogEditSources.java
+END
+ElipseGUIBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/35/PrototipoCompetencias/src/GUI/ElipseGUIBean.java
+END
+PointGUIBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/32/PrototipoCompetencias/src/GUI/PointGUIBean.java
+END
+jDialogAddEvaluation.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/45/PrototipoCompetencias/src/GUI/jDialogAddEvaluation.java
+END
+jDialogNewEvaluation.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/38/PrototipoCompetencias/src/GUI/jDialogNewEvaluation.java
+END
+TaskRunning.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/41/PrototipoCompetencias/src/GUI/TaskRunning.java
+END
+jDialogRun.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/45/PrototipoCompetencias/src/GUI/jDialogRun.java
+END
+jDialogAddCompetence.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/43/PrototipoCompetencias/src/GUI/jDialogAddCompetence.java
+END
+Grafica.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/45/PrototipoCompetencias/src/GUI/Grafica.java
+END
+jDialogEditEmployer.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/45/PrototipoCompetencias/src/GUI/jDialogEditEmployer.java
+END
+jDialogAddFuzzyVariable.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/45/PrototipoCompetencias/src/GUI/jDialogAddFuzzyVariable.java
+END
+GUIDataBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/35/PrototipoCompetencias/src/GUI/GUIDataBean.java
+END

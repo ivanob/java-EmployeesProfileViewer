@@ -1,0 +1,40 @@
+10
+
+dir
+10
+http://localhost/svn/PrototipoCompetencias/src/test/evaluation/operations
+http://localhost/svn
+
+
+
+2012-04-14T18:38:45.710152Z
+10
+ivan_svn
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+dfbd1fd1-2a43-46a0-b1fb-c8d43b84ee90
+
+all
+dir
+
+crisp
+dir
+
+fuzzy
+dir
+
+scalar
+dir
+

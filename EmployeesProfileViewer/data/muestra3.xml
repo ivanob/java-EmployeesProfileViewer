@@ -1,0 +1,334 @@
+<configuration>
+<competences>
+<competence name="c++"/>
+<competence name="Java"/>
+<competence name="HTML"/>
+<competence name="Ruby"/>
+<competence name="Scala"/>
+<competence name="Python"/>
+<competence name="Linux"/>
+<competence name="Oracle"/>
+<competence name="MySQL"/>
+<competence name="Tomcat"/>
+</competences>
+<sources>
+<source distrust_max="0.0" distrust_min="0.0" name="max_trust"/>
+</sources>
+<fuzzysets>
+<competence name="c++">
+
+<fuzzyset>
+<label name="mucho" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="9.5"/>
+<point alpha="0.5"/>
+<point beta="0.5"/>
+</label>
+</fuzzyset>
+
+</competence>
+<competence name="Java">
+
+<fuzzyset>
+<label name="mucho" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="9.5"/>
+<point alpha="0.5"/>
+<point beta="0.5"/>
+</label>
+</fuzzyset>
+
+</competence>
+<competence name="HTML">
+
+<fuzzyset>
+<label name="medio" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="7.75"/>
+<point alpha="0.75"/>
+<point beta="0.75"/>
+</label>
+</fuzzyset>
+
+</competence>
+<competence name="Ruby">
+
+<fuzzyset>
+<label name="mucho" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="9"/>
+<point alpha="1"/>
+<point beta="1"/>
+</label>
+</fuzzyset>
+
+</competence>
+<competence name="Scala">
+
+<fuzzyset>
+<label name="medio" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="6.5"/>
+<point alpha="0.5"/>
+<point beta="0.5"/>
+</label>
+</fuzzyset>
+
+</competence>
+<competence name="Python">
+<fuzzyset/>
+</competence>
+<competence name="Linux">
+
+<fuzzyset>
+<label name="medio" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="6.5"/>
+<point alpha="1.5"/>
+<point beta="1.5"/>
+</label>
+</fuzzyset>
+
+</competence>
+<competence name="Oracle">
+
+<fuzzyset>
+<label name="mucho" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="8"/>
+<point alpha="1"/>
+<point beta="1"/>
+</label>
+</fuzzyset>
+
+</competence>
+<competence name="MySQL">
+
+<fuzzyset>
+<label name="mucho" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="7.5"/>
+<point alpha="2.5"/>
+<point beta="2.5"/>
+</label>
+</fuzzyset>
+
+</competence>
+<competence name="Tomcat">
+<fuzzyset/>
+</competence>
+</fuzzysets>
+<employees>
+
+<!-- Expertos en programacion sistemas -->
+
+<employee name="Empleado1">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="fuzzy">mucho</evaluation>
+<evaluation competence="Java" source="max_trust" type="fuzzy">mucho</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="fuzzy">medio</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">7.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">3.0</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado2">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">8.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">9.0</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">4.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">7.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">10.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">4.0</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado3">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">7.5</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">8.5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">8.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">9.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">3.5</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">1.0</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado4">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">7.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">7.5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">4.5</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">4.5</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">7.3</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">9.8</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">4.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">3.3</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">3.5</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado5">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">9.5</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">8.5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">6.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">7.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">6.5</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">4.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">3.5</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">0.5</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado6">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">10.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">8.5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">6.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">6.5</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">1.5</evaluation>
+</evaluations>
+</employee>
+
+<!-- Expertos en programacion web -->
+
+<employee name="Empleado7">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">7.0</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">10.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">9.5</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">4.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">4.5</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">3.5</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">2.5</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado8">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">3.5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="fuzzy">medio</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="fuzzy">mucho</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">4.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">5.0</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado9">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">10.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">9.5</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">4.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">0.0</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado10">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">9.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">10.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">4.5</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">4.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">2.0</evaluation>
+</evaluations>
+</employee>
+
+<!-- Expertos en administracion -->
+
+<employee name="Empleado11">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">2.5</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">2.5</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">4.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">8.5</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">10.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">9.5</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">9.0</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado12">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">0.5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">6.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">10.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">7.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">8.0</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">9.5</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado13">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">2.5</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">2.5</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">0.5</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">5.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">7.5</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">6.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">6.5</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">8.0</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado14">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">3.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="fuzzy">medio</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="fuzzy">mucho</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="scalar">8.5</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">10.0</evaluation>
+</evaluations>
+</employee>
+<employee name="Empleado15">
+<evaluations>
+<evaluation competence="c++" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="Java" source="max_trust" type="scalar">0.0</evaluation>
+<evaluation competence="HTML" source="max_trust" type="scalar">1.5</evaluation>
+<evaluation competence="Ruby" source="max_trust" type="scalar">1.0</evaluation>
+<evaluation competence="Scala" source="max_trust" type="scalar">2.0</evaluation>
+<evaluation competence="Python" source="max_trust" type="scalar">4.0</evaluation>
+<evaluation competence="Linux" source="max_trust" type="scalar">10.0</evaluation>
+<evaluation competence="Oracle" source="max_trust" type="scalar">10.0</evaluation>
+<evaluation competence="MySQL" source="max_trust" type="fuzzy">mucho</evaluation>
+<evaluation competence="Tomcat" source="max_trust" type="scalar">9.5</evaluation>
+</evaluations>
+</employee>
+</employees>
+</configuration>

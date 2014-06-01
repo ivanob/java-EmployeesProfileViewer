@@ -1,0 +1,61 @@
+package test.evaluation.operations.crisp;
+
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import controller.competences.Competence;
+import controller.employers.Employer;
+import controller.evaluations.Evaluation;
+import controller.evaluations.Source;
+
+
+import rs.ac.ns.ftn.tmd.fuzzy.CrispSet;
+import rs.ac.ns.ftn.tmd.fuzzy.FuzzySet;
+import rs.ac.ns.ftn.tmd.fuzzy.ScalarNumber;
+
+public class CrispSetMeansTest {
+	private CrispSet cs1, cs2, cs3, cs4, cs5, cs6, cs7, cs8;
+	private ScalarNumber s1;
+	private Source source;
+	private Employer empl;
+	
+	@Before 
+	public void setUp(){
+		cs1 = new CrispSet(1,3);
+		cs2 = new CrispSet(6,7);
+		cs3 = new CrispSet(3,5);
+		cs4 = new CrispSet(2,4);
+		cs5 = new CrispSet(3,6);
+		cs6 = new CrispSet(0,2);
+		cs7 = new CrispSet(0,10);
+		cs8 = new CrispSet(9,10);
+		s1 = new ScalarNumber(2);
+		source=new Source("max", 0,0);
+	}
+	
+	@Test
+	public void evalCrispSetMean1(){
+		empl = new Employer("",1);
+		Competence c = new Competence("", 0);
+		empl.addEvaluation(new Evaluation(c,source,cs1));
+		empl.addEvaluation(new Evaluation(c,source,cs2));
+		FuzzySet res = empl.getEvaluation(0).getMark();
+		assertTrue(res instanceof CrispSet);
+		assertTrue(res.getLeftBoundary()==3.5);
+		assertTrue(res.getRightBoundary()==5);
+	}
+	
+	@Test
+	public void evalCrispSetAndScalarMean1(){
+		empl = new Employer("",1);
+		Competence c = new Competence("", 0);
+		empl.addEvaluation(new Evaluation(c,source,cs3));
+		empl.addEvaluation(new Evaluation(c,source,s1));
+		FuzzySet res = empl.getEvaluation(0).getMark();
+		assertTrue(res instanceof CrispSet);
+		assertTrue(res.getLeftBoundary()==2.5);
+		assertTrue(res.getRightBoundary()==3.5);
+	}
+}

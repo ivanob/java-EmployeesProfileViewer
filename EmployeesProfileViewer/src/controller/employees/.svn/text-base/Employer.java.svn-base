@@ -1,0 +1,108 @@
+package controller.employers;
+
+import java.util.LinkedList;
+
+import controller.evaluations.Evaluation;
+
+import rs.ac.ns.ftn.tmd.fuzzy.FuzzySet;
+
+public class Employer {
+	private String name;
+	private LinkedList<Evaluation>[] evals;
+	private Evaluation[] evalsMeans;
+	
+	public Employer(String name, int numComp){
+		evals = new LinkedList[numComp];
+		for(int i=0; i<numComp; i++){
+			evals[i]=new LinkedList();
+		}
+		evalsMeans = new Evaluation[numComp];
+		this.name = name;
+	}
+	
+	public LinkedList<Evaluation> getEvaluations(int compId){
+		return evals[compId];
+	}
+	
+	public boolean existsImprecision(){
+		for(Evaluation ev : evalsMeans){
+			if(ev.existImprecision()){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean existsFuzzyImprecision(){
+		for(Evaluation ev : evalsMeans){
+			if(ev.existFuzzyImprecision()){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public void addEvaluation(Evaluation ev){
+		/* Aniado la evaluacion a la lista de evaluaciones,
+		 * no es un add de suma de notas. */
+		evals[ev.getCompetence().getId()].add(ev);
+		calculateMeans(); /* Recalculo la media de 
+		evaluaciones para esa competencia */
+	}
+	
+	public void removeEvaluation(int compId, int i){
+		evals[compId].remove(i);
+		calculateMeans(); /* Recalculo la media de 
+		evaluaciones para esa competencia */
+	}
+	
+	private void calculateMeans(){
+		evalsMeans=new Evaluation[evals.length];
+		for(int i=0; i<evals.length; i++){
+			FuzzySet ev=null;
+			if(!evals[i].isEmpty()){
+				int j;
+				for(j=0; j<evals[i].size(); j++){
+					if(j==0){
+						ev=evals[i].get(j).getMark();
+					}else{
+						ev=ev.add(evals[i].get(j).getMark());
+					}
+				}
+				ev=ev.divideScalar(j);
+				evalsMeans[i]=new Evaluation(evals[i].get(0).getCompetence(),
+						evals[i].get(0).getSource(), ev, false);
+			}
+		}
+	}
+	
+	public Evaluation getEvaluation(int idComp){
+		return evalsMeans[idComp];
+	}
+	
+	public String toString(){
+		return name;
+	}
+	
+	public FuzzySet euclideanDistance(Employer other){
+		FuzzySet result = null;
+		boolean first=false;
+		for(Evaluation ev : evalsMeans){
+			Evaluation otherEval = other.getEvaluation(ev.getCompetence().getId());
+			FuzzySet dist = ev.getMark().distance(otherEval.getMark());
+			dist = dist.pow(2);
+			if(first){
+				result = dist;
+				first=true;
+			}else{
+				result = result.add(dist);
+			}
+		}
+		return result.sqrt();
+	}
+
+}

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy
+END
+DecomposedFuzzyNumber.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/47/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/DecomposedFuzzyNumber.java
+END
+FuzzyFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/11/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/FuzzyFactory.java
+END
+FuzzyInterval.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/47/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/FuzzyInterval.java
+END
+LRFuzzyNumber.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/42/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/LRFuzzyNumber.java
+END
+CrispSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/47/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/CrispSet.java
+END
+FuzzySet.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/42/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/FuzzySet.java
+END
+ScalarNumber.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/43/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/ScalarNumber.java
+END

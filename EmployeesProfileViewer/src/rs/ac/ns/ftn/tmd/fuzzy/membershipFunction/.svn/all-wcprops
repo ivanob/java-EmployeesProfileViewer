@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/membershipFunction
+END
+LRMembershipFunctionGaussian.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/membershipFunction/LRMembershipFunctionGaussian.java
+END
+LRMembershipFunctionLinear.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/membershipFunction/LRMembershipFunctionLinear.java
+END
+LRMembershipFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/membershipFunction/LRMembershipFunction.java
+END
+LRMembershipFunctionQuadratic.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/membershipFunction/LRMembershipFunctionQuadratic.java
+END
+LRMembershipFunctionExponential.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/8/PrototipoCompetencias/src/rs/ac/ns/ftn/tmd/fuzzy/membershipFunction/LRMembershipFunctionExponential.java
+END

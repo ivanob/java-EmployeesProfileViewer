@@ -1,0 +1,52 @@
+package controller.genetic;
+
+public class DistanceBean {
+	private double min, max, med;
+	private double[] minCuts, maxCuts;
+	
+	public DistanceBean(double min, double max, double med){
+		this.setMin(min);
+		this.setMax(max);
+		this.setMed(med);
+	}
+
+	public double getMin() {
+		return min;
+	}
+
+	public void setMin(double min) {
+		this.min = min;
+	}
+
+	public double getMax() {
+		return max;
+	}
+
+	public void setMax(double max) {
+		this.max = max;
+	}
+
+	public double getMed() {
+		return med;
+	}
+
+	public void setMed(double med) {
+		this.med = med;
+	}
+
+	public double[] getMinCuts() {
+		return minCuts;
+	}
+
+	public void setMinCuts(double[] minCuts) {
+		this.minCuts = minCuts;
+	}
+
+	public double[] getMaxCuts() {
+		return maxCuts;
+	}
+
+	public void setMaxCuts(double[] maxCuts) {
+		this.maxCuts = maxCuts;
+	}
+}

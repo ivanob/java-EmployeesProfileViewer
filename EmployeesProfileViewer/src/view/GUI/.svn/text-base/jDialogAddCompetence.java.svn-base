@@ -1,0 +1,142 @@
+package view.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JList;
+
+import controller.competences.CompetenceFactory;
+
+public class jDialogAddCompetence extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+	private JTextField textField;
+	private CompetenceFactory cf;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			jDialogAddCompetence dialog = new jDialogAddCompetence();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public jDialogAddCompetence() {
+		this.setTitle("Edit competences");
+		setBounds(100, 100, 409, 307);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		
+		JLabel lblCompetencesName = new JLabel("Competence's name: ");
+		lblCompetencesName.setBounds(12, 12, 152, 15);
+		contentPanel.add(lblCompetencesName);
+		
+		textField = new JTextField();
+		textField.setBounds(170, 10, 131, 19);
+		contentPanel.add(textField);
+		textField.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 70, 213, 155);
+		contentPanel.add(scrollPane);
+		
+		final JList list = new JList();
+		scrollPane.setViewportView(list);
+		
+		DefaultListModel model = new DefaultListModel();
+		cf = CompetenceFactory.getInstance();
+		for(int i=0; i<cf.getNumCompetences(); i++){
+			model.add(i, cf.getCompetence(i).getName());
+		}
+		list.setModel(model);
+		
+		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent evt) {
+		    	if(validateFields()){
+		    		DefaultListModel model = (DefaultListModel) list.getModel();
+		    		model.addElement(textField.getText());
+		    		cf.addCompetence(textField.getText());
+		    	}
+		    }
+		});
+		btnAdd.setBounds(313, 7, 69, 25);
+		contentPanel.add(btnAdd);
+		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent evt) {
+		    	int selected=list.getSelectedIndex();
+		    	if(selected!=-1){
+		    		String name=(String) list.getModel().getElementAt(selected);
+		    		cf.removeCompetence(name);
+		    		DefaultListModel model = (DefaultListModel) list.getModel();
+		    		model.remove(selected);
+		    	}else{
+		    		JOptionPane.showMessageDialog(contentPanel,
+						    "There is not a competence "+
+						    "\nselected in the list",
+						    "Error",
+						    JOptionPane.ERROR_MESSAGE);
+		    	}
+		    }
+		});
+		btnDelete.setBounds(274, 136, 81, 25);
+		contentPanel.add(btnDelete);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton closeButton = new JButton("Close");
+				closeButton.setActionCommand("Cancel");
+				closeButton.addActionListener(new ActionListener() {
+				    public void actionPerformed(ActionEvent evt) {
+				    	dispose();
+				    }
+				});
+				buttonPane.add(closeButton);
+			}
+		}
+	}
+	
+	private boolean validateFields(){
+		String name = textField.getText();
+		if(name.compareTo("")==0){
+			JOptionPane.showMessageDialog(contentPanel,
+				    "Competence's name is required",
+				    "Error",
+				    JOptionPane.ERROR_MESSAGE);
+			return false;
+		}else if(cf.getCompetence(name)!=null){
+			JOptionPane.showMessageDialog(contentPanel,
+				    "There is already a competenece "+
+				    "\nregistered with name " + name,
+				    "Error",
+				    JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		return true;
+	}
+}

@@ -1,0 +1,77 @@
+10
+
+dir
+42
+http://localhost/svn/PrototipoCompetencias/src/controller
+http://localhost/svn
+
+
+
+2012-09-10T18:59:47.812014Z
+42
+ivan_svn
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+dfbd1fd1-2a43-46a0-b1fb-c8d43b84ee90
+
+Main.java
+file
+43
+
+
+
+2012-09-26T23:10:03.000000Z
+2f9784e844a5f76363448ceb9dbf5a27
+2012-09-11T23:05:09.585839Z
+43
+ivan_svn
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6303
+
+competences
+dir
+
+employers
+dir
+
+evaluations
+dir
+
+geometry
+dir
+
+persistence
+dir
+

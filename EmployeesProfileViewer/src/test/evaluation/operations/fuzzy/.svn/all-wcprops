@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/10/PrototipoCompetencias/src/test/evaluation/operations/fuzzy
+END
+FuzzyIntervalConstructorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/26/PrototipoCompetencias/src/test/evaluation/operations/fuzzy/FuzzyIntervalConstructorTest.java
+END
+DecomposedFuzzyAlphacutsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/30/PrototipoCompetencias/src/test/evaluation/operations/fuzzy/DecomposedFuzzyAlphacutsTest.java
+END
+DecomposedFuzzyDistancesTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/42/PrototipoCompetencias/src/test/evaluation/operations/fuzzy/DecomposedFuzzyDistancesTest.java
+END
+DecomposedFuzzyMeansTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/47/PrototipoCompetencias/src/test/evaluation/operations/fuzzy/DecomposedFuzzyMeansTest.java
+END
+FuzzyIntervalDistancesTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/47/PrototipoCompetencias/src/test/evaluation/operations/fuzzy/FuzzyIntervalDistancesTest.java
+END
+FuzzyIntervalMeansTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/47/PrototipoCompetencias/src/test/evaluation/operations/fuzzy/FuzzyIntervalMeansTest.java
+END

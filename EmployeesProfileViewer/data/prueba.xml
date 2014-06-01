@@ -1,0 +1,38 @@
+<configuration>
+<competences>
+<competence name="aaa"/>
+<competence name="bbb"/>
+<competence name="ccc"/>
+</competences>
+<sources/>
+<fuzzysets>
+<competence name="aaa">
+<fuzzyset>
+<label name="123" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="5.0"/>
+<point alpha="3.0"/>
+<point beta="1.0"/>
+</label>
+</fuzzyset>
+</competence>
+<competence name="bbb">
+<fuzzyset>
+<label name="vvv" type="Decomposed" typeL="Gaussian" typeR="Quadratic">
+<point modal="5.0"/>
+<point alpha="3.0"/>
+<point beta="1.0"/>
+</label>
+</fuzzyset>
+</competence>
+<competence name="ccc">
+<fuzzyset>
+<label name="bbb" type="Decomposed" typeL="Linear" typeR="Linear">
+<point modal="5.0"/>
+<point alpha="4.0"/>
+<point beta="4.0"/>
+</label>
+</fuzzyset>
+</competence>
+</fuzzysets>
+<employees/>
+</configuration>
