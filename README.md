@@ -15,15 +15,15 @@ This system can be used in other areas with similar problems: medical diagnosis,
 
 It is supplied with all the documentation of the research project.
 
-Image 1: map of employees with uncertainty
-![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen1.png)
-Image 2: map of employees without uncertainty
-![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen2.png)
-Image 3: run panel
-![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen3.png)
-Image 4: panel of knowledge levels for each competence
-![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen4.png)
-Image 5: panel for edit employees and their evaluations
-![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen5.png)
-Image 6: map of 3 employees
-![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen6.png)
+Image 1: map of employees with uncertainty </br>
+![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen1.png) </br>
+Image 2: map of employees without uncertainty </br>
+![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen2.png) </br>
+Image 3: run panel </br>
+![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen3.png) </br>
+Image 4: panel of knowledge levels for each competence </br>
+![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen4.png) </br>
+Image 5: panel for edit employees and their evaluations </br>
+![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen5.png) </br>
+Image 6: map of 3 employees </br>
+![alt tag](http://a.fsdn.com/con/app/proj/empl-prof-view/screenshots/screen6.png) </br>
